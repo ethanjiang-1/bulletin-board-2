@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get("/", { :controller => "boards", :action => "index" })
+  devise_for :users
+  root to: "boards#index"
 
   # Routes for the Post resource:
 
@@ -38,8 +39,6 @@ Rails.application.routes.draw do
   get("/delete_board/:path_id", { :controller => "boards", :action => "destroy" })
 
   #------------------------------
-
-  root to: "boards#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
